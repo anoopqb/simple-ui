@@ -1,6 +1,6 @@
 {
   "name": "@anoopqb/simple-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple React UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,7 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && npm run copy-css",
+    "copy-css": "cp dist/esm/index.css dist/index.css 2>/dev/null || cp dist/cjs/index.css dist/index.css 2>/dev/null || true",
     "clean": "rm -rf dist"
   },
   "repository": {
@@ -25,7 +26,8 @@
   "author": "anoopqb",
   "license": "MIT",
   "peerDependencies": {
-    "react": "19.1.0"
+    "react": "^16.8 || ^17 || ^18 || ^19",
+    "react-dom": "^16.8 || ^17 || ^18 || ^19"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.0",
@@ -34,8 +36,8 @@
     "rollup": "^2.79.0",
     "rollup-plugin-dts": "^4.0.0",
     "rollup-plugin-postcss": "^4.0.0",
-    "typescript": "^4.0.0",
-    "@types/react": "^17.0.0",
+    "typescript": "^5.0.0",
+    "@types/react": "^19.0.0",
     "tslib": "^2.0.0"
   }
 }
