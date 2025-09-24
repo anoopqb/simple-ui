@@ -1,0 +1,25 @@
+.simple-ui-header {
+  background-color: #f8f8f8;
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo img {
+  height: 40px;
+}
+.header-nav {
+  display: flex;
+  gap: 16px;
+}
+.header-menu-item {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.header-menu-item:hover {
+  color: #000;
+}
