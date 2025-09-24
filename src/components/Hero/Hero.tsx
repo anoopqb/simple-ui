@@ -76,13 +76,11 @@ const Hero = ({
 
     const backgroundImageUrl = image && image.length > 0 ? getImageUrl(image[0]) : '';
 
-    console.log(backgroundImageUrl);
-
     return (
         <section
             className={`simple-ui-hero simple-ui-hero--${textAlign}`}
             style={{
-                backgroundImage: backgroundImageUrl ? `url(${backgroundImageUrl})` : 'none',
+                backgroundImage: backgroundImageUrl ? `url(http://localhost:1338${backgroundImageUrl})` : 'none',
                 height
             }}
         >
