@@ -11,18 +11,27 @@ npm install @anoopqb/simple-ui
 ## Usage
 
 ```tsx
-import { Header } from '@anoopqb/simple-ui';
+import { Header, Hero } from '@anoopqb/simple-ui';
 import '@anoopqb/simple-ui/dist/index.css'; // Import styles
 
 function App() {
   return (
-    <Header 
-      logoSrc="https://example.com/mylogo.png" 
-      menuItems={[
-        { label: 'Home', href: '/' },
-        { label: 'About', href: '/about' }
-      ]} 
-    />
+    <div>
+      <Header 
+        logoSrc="https://example.com/mylogo.png" 
+        menuItems={[
+          { label: 'Home', href: '/' },
+          { label: 'About', href: '/about' }
+        ]} 
+      />
+      <Hero
+        backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+        title="Welcome to Our Site"
+        subtitle="Beautiful components for modern React applications"
+        ctaText="Get Started"
+        onCtaClick={() => console.log('CTA clicked!')}
+      />
+    </div>
   );
 }
 ```
@@ -48,6 +57,36 @@ A responsive header component with logo and navigation menu.
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' }
   ]}
+/>
+```
+
+### Hero
+
+A full-width hero section with background image, title, subtitle, and call-to-action button.
+
+#### Props
+
+- `backgroundImage` (string): URL for the background image
+- `title` (string): Main heading text
+- `subtitle?` (string): Optional subtitle text
+- `ctaText` (string): Text for the CTA button
+- `ctaHref?` (string): Optional href for the CTA (renders as link)
+- `onCtaClick?` (function): Optional click handler for the CTA
+- `height?` (string): Custom height (default: "60vh")
+- `overlay?` (boolean): Show dark overlay (default: true)
+- `textAlign?` ('left' | 'center' | 'right'): Text alignment (default: 'center')
+
+#### Example
+
+```tsx
+<Hero
+  backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+  title="Welcome to Our Platform"
+  subtitle="Discover amazing features and capabilities"
+  ctaText="Get Started"
+  onCtaClick={() => alert('Welcome!')}
+  height="80vh"
+  textAlign="center"
 />
 ```
 

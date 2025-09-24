@@ -3,7 +3,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
-import path from "path";
 
 const packageJson = require("./package.json");
 
