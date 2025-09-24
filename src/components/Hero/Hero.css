@@ -62,6 +62,13 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+.simple-ui-hero__cta-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: inherit;
+}
+
 .simple-ui-hero__cta {
     display: inline-block;
     padding: 1rem 2rem;
@@ -101,6 +108,10 @@
 
     .simple-ui-hero__subtitle {
         font-size: 1.1rem;
+    }
+
+    .simple-ui-hero__cta-container {
+        justify-content: center;
     }
 
     .simple-ui-hero__cta {

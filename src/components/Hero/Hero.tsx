@@ -76,6 +76,8 @@ const Hero = ({
 
     const backgroundImageUrl = image && image.length > 0 ? getImageUrl(image[0]) : '';
 
+    console.log(backgroundImageUrl);
+
     return (
         <section
             className={`simple-ui-hero simple-ui-hero--${textAlign}`}
