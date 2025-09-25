@@ -9,6 +9,7 @@ const TwoColumnContent: React.FC<TwoColumnContentProps> = ({
     cta = [],
     image = [],
     className = '',
+    baseImageUrl = '',
 }) => {
     const containerClasses = [
         'two-column-content',
@@ -18,16 +19,18 @@ const TwoColumnContent: React.FC<TwoColumnContentProps> = ({
 
     const getOptimalImageUrl = (imageData: ImageData): string => {
         // Return the best available image format, preferring medium > small > large > original
+        let url = '';
         if (imageData.formats.medium) {
-            return imageData.formats.medium.url;
+            url = imageData.formats.medium.url;
+        } else if (imageData.formats.small) {
+            url = imageData.formats.small.url;
+        } else if (imageData.formats.large) {
+            url = imageData.formats.large.url;
+        } else {
+            url = imageData.url;
         }
-        if (imageData.formats.small) {
-            return imageData.formats.small.url;
-        }
-        if (imageData.formats.large) {
-            return imageData.formats.large.url;
-        }
-        return imageData.url;
+
+        return baseImageUrl ? `${baseImageUrl}${url}` : url;
     };
 
     const renderCTAButtons = () => {

@@ -56,4 +56,5 @@ export interface TwoColumnContentProps {
     cta?: CTAButton[];
     image?: ImageData[];
     className?: string;
+    baseImageUrl?: string;
 }
