@@ -55,6 +55,7 @@ export interface HeroProps {
     height?: string;
     overlay?: boolean;
     textAlign?: 'left' | 'center' | 'right';
+    baseImageUrl?: string;
 }
 
 const Hero = ({
@@ -64,14 +65,18 @@ const Hero = ({
     cta,
     height = "60vh",
     overlay = true,
-    textAlign = "center"
+    textAlign = "center",
+    baseImageUrl = ""
 }: HeroProps) => {
     // Get the best available image URL - prioritize larger formats for hero background
     const getImageUrl = (imageData: ImageData) => {
-        if (imageData.formats.large) return imageData.formats.large.url;
-        if (imageData.formats.medium) return imageData.formats.medium.url;
-        if (imageData.formats.small) return imageData.formats.small.url;
-        return imageData.url; // fallback to original
+        let url = '';
+        if (imageData.formats.large) url = imageData.formats.large.url;
+        else if (imageData.formats.medium) url = imageData.formats.medium.url;
+        else if (imageData.formats.small) url = imageData.formats.small.url;
+        else url = imageData.url; // fallback to original
+
+        return baseImageUrl ? `${baseImageUrl}${url}` : url;
     };
 
     const backgroundImageUrl = image && image.length > 0 ? getImageUrl(image[0]) : '';
@@ -80,7 +85,7 @@ const Hero = ({
         <section
             className={`simple-ui-hero simple-ui-hero--${textAlign}`}
             style={{
-                backgroundImage: backgroundImageUrl ? `url(http://localhost:1338${backgroundImageUrl})` : 'none',
+                backgroundImage: backgroundImageUrl ? `url(${backgroundImageUrl})` : 'none',
                 height
             }}
         >
